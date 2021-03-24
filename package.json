@@ -1,7 +1,6 @@
 {
   "name": "translators-bot",
   "version": "0.0.1",
-  "description": "",
   "main": "src/index.js",
   "dependencies": {
     "discord.js": "^12.5.1",
@@ -24,5 +23,14 @@
     "@root": "./src",
     "@schemas": "./src/schemas",
     "@utilities": "./src/utilities"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Syjalo/Translators-Bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Syjalo/Translators-Bot/issues"
+  },
+  "homepage": "https://github.com/Syjalo/Translators-Bot#readme",
+  "description": ""
 }

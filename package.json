@@ -1,0 +1,28 @@
+{
+  "name": "translators-bot",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "module-alias": "^2.2.2",
+    "mongodb": "^3.6.5",
+    "mongoose": "^5.12.1",
+    "node-fetch": "^2.6.1",
+    "puppeteer": "^8.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Syjalo",
+  "license": "MIT",
+  "_moduleAliases": {
+    "@handlers": "./src/handlers",
+    "@res": "./src/res",
+    "@root": "./src",
+    "@schemas": "./src/schemas",
+    "@utilities": "./src/utilities"
+  }
+}

@@ -62,7 +62,7 @@ module.exports = {
         }
 
         message.channel.startTyping()
-        const browser = await puppeteer.launch({ headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox'], })
+        const browser = await puppeteer.launch({ headless: false, args: ['--incognito', '--single-process', '--no-sandbox', '--no-zygote', '--disable-setuid-sandbox'], })
         let page = await browser.newPage()
         await page.setViewport({ width: 1400, height: 900 })
         const profileUrl = `https://crowdin.com/profile/${member.username}`

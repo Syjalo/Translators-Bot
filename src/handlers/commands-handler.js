@@ -49,7 +49,7 @@ module.exports = async (client, message) => {
                 .setAuthor('Error Found')
                 .setTitle(`Error found at ${command.name} command. Channel type: ${message.channel.type}. Executed by ${message.author.tag} (${message.author.id}).`)
                 .setDescription(`Message content: ${message.content}\n${error.stack}`)
-                .setColor(colorRed)
+                .setColor('#FF0000')
                 client.owner.send(embed)
             }
         }

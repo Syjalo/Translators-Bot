@@ -63,13 +63,10 @@ module.exports = {
 
         message.channel.startTyping()
         const browser = await puppeteer.launch({ headless: false, args: [
-            '--disable-gpu',
-            '--disable-dev-shm-usage',
-            '--disable-setuid-sandbox',
-            '--no-first-run',
-            '--no-sandbox',
-            '--no-zygote',
-            '--single-process',
+            "--incognito",
+            "--no-sandbox",
+            "--single-process",
+            "--no-zygote"
         ], })
         let page = await browser.newPage()
         await page.setViewport({ width: 1400, height: 900 })

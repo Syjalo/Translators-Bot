@@ -24,6 +24,7 @@ module.exports = async (client, message) => {
     if(channelsWhitelist[0] === 'each') flag = true
     if(channelsWhitelist.some(c => message.channel.id === c)) flag = true
     if(!allowedInDm && message.channel.type === 'dm') flag = false
+    if(allowedInDm && message.channel.type === 'dm') flag = true
     if(message.member?.hasPermission('ADMINISTRATOR')) flag = true
     if(!flag) {
         if(message.channel.type === 'dm') return

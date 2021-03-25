@@ -7,7 +7,6 @@ const usersSchema = require('@schemas/users-schema')
 module.exports = {
     name: 'crowdinverify',
     aliases: ['cverify', 'c'],
-    allowedInDm: true,
     channelsBlacklist: ['each'],
     channelsWhitelist: ['738589611919540346', '748847925886713967'],
     async execute(message, args, client) {
@@ -63,7 +62,7 @@ module.exports = {
         }
 
         message.channel.startTyping()
-        const browser = await puppeteer.launch()
+        const browser = await puppeteer.launch({ headless:false, args: ["--no-sandbox"] })
         let page = await browser.newPage()
         await page.setViewport({ width: 1400, height: 900 })
         const profileUrl = `https://crowdin.com/profile/${member.username}`

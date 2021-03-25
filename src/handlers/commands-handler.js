@@ -37,7 +37,7 @@ module.exports = async (client, message) => {
     try {
         await command.execute(message, args, client)
     } catch(error) {
-        console.error(err)
+        console.error(error)
         const embed = new Discord.MessageEmbed()
         .setTitle('An error occurred while running the command\nI sent this error to the Developer. He\'ll fix it soon.')
         .setColor('#FF0000')

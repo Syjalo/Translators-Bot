@@ -19,10 +19,14 @@ module.exports = async (client, message) => {
     const allowedInDm = command.allowedInDm || false
     
     let flag = true
-    if(channelsBlacklist[0] === 'each') flag = false
-    if(channelsBlacklist.some(c => message.channel.id === c)) flag = false
-    if(channelsWhitelist[0] === 'each') flag = true
-    if(channelsWhitelist.some(c => message.channel.id === c)) flag = true
+    if(channelsBlacklist) {
+        flag = true
+        if(channelsBlacklist.some(c => message.channel.id === c)) flag = false
+    }
+    if(channelsWhitelist) {
+        flag = false
+        if(channelsWhitelist.some(c => message.channel.id === c)) flag = true
+    }
     if(allowedInDm && message.channel.type === 'dm') flag = true
     if(message.member?.hasPermission('ADMINISTRATOR')) flag = true
     if(!flag) {

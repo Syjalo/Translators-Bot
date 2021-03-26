@@ -6,8 +6,7 @@ const usersSchema = require('@schemas/users-schema')
 
 module.exports = {
     name: 'crowdinverify',
-    aliases: ['cverify', 'c'],
-    channelsBlacklist: ['each'],
+    aliases: ['cverify'],
     channelsWhitelist: ['738589611919540346', '748847925886713967'],
     async execute(message, args, client) {
         message.channel.startTyping()

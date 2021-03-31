@@ -29,7 +29,6 @@ module.exports = async (client, message) => {
         flag = false
         if(channelsWhitelist.some(c => message.channel.id === c)) flag = true
     }
-    if(allowedInDm && message.channel.type === 'dm') flag = true
     if(permissionsBlacklist) {
         flag = true
         if(permissionsBlacklist.some(p => message.member?.hasPermission(p))) flag = false
@@ -39,6 +38,7 @@ module.exports = async (client, message) => {
         if(permissionsWhitelist.some(p => message.member?.hasPermission(p))) flag = true
     }
     if(message.member?.hasPermission('ADMINISTRATOR')) flag = true
+    if(allowedInDm && message.channel.type === 'dm') flag = true
     if(!flag) {
         if(message.channel.type === 'dm') return
         message.react('❌')

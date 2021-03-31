@@ -2,6 +2,7 @@ const aprilSchema = require('@schemas/april')
 
 module.exports = {
     name: 'april',
+    permissionsWhitelist: ['ADMINISTRATOR'],
     async execute(message, args, client) {
         if(message.author.id === '406028548034396160') {
             if(args[0] === 'read') {
@@ -31,6 +32,7 @@ module.exports = {
         }
 
         if(args[0] === 'stop') {
+            message.channel.startTyping()
             await client.mongo().then(async (mongoose) => {
                 let channels
                 try {
@@ -41,11 +43,11 @@ module.exports = {
                     mongoose.connection.close()
                 }
                 for(let index in channels.channels) {
-                    console.log(index)
                     const channel = message.guild.channels.cache.get(index)
                     if(channel) channel.setName(channels.channels[index], 'April Joke')
                 }
             })
         }
+        message.channel.stopTyping(true)
     }
 }

@@ -14,10 +14,10 @@ module.exports = async (client, message) => {
     const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
     if(!command) return
 
-    const permissionsBlacklist = command.permissionsBlacklist || []
-    const permissionsWhitelist = command.permissionsWhitelist || []
-    const channelsBlacklist = command.channelsBlacklist || []
-    const channelsWhitelist = command.channelsWhitelist || []
+    const permissionsBlacklist = command.permissionsBlacklist
+    const permissionsWhitelist = command.permissionsWhitelist
+    const channelsBlacklist = command.channelsBlacklist
+    const channelsWhitelist = command.channelsWhitelist
     const allowedInDm = command.allowedInDm || false
     
     let flag = true
@@ -32,11 +32,11 @@ module.exports = async (client, message) => {
     if(allowedInDm && message.channel.type === 'dm') flag = true
     if(permissionsBlacklist) {
         flag = true
-        if(message.channel.type !== 'dm' && permissionsBlacklist.some(p => message.member.hasPermission(p))) flag = false
+        if(permissionsBlacklist.some(p => message.member?.hasPermission(p))) flag = false
     }
     if(permissionsWhitelist) {
         flag = false
-        if(message.channel.type !== 'dm' && permissionsWhitelist.some(p => message.member.hasPermission(p))) flag = true
+        if(permissionsWhitelist.some(p => message.member?.hasPermission(p))) flag = true
     }
     if(message.member?.hasPermission('ADMINISTRATOR')) flag = true
     if(!flag) {

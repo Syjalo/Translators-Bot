@@ -43,7 +43,7 @@ module.exports = {
                 for(let index in channels.channels) {
                     console.log(index)
                     const channel = message.guild.channels.cache.get(index)
-                    channel.setName(channels.channels[index], 'April Joke')
+                    if(channel) channel.setName(channels.channels[index], 'April Joke')
                 }
             })
         }

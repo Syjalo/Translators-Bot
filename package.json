@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "main": "src/index.js",
   "dependencies": {
-    "discord.js": "^12.5.1",
+    "discord.js": "^12.5.2",
     "dotenv": "^8.2.0",
     "module-alias": "^2.2.2",
     "mongodb": "^3.6.5",
-    "mongoose": "^5.12.1",
+    "mongoose": "^5.12.3",
     "node-fetch": "^2.6.1",
     "puppeteer": "^8.0.0"
   },
